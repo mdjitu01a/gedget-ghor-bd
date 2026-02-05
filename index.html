@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gedgets Ghor BD</title>
+    <title>Gadgets Ghor BD</title>
     <style>
         body {
             margin: 0;
@@ -18,9 +18,8 @@
             text-align: center;
             position: relative;
         }
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
+        .logo-img {
+            height: 80px; /* লোগোর সাইজ অ্যাডজাস্ট করুন */
         }
         .call-btn {
             position: absolute;
@@ -43,9 +42,6 @@
         .banner h1 {
             margin: 0;
             font-size: 28px;
-        }
-        .banner p {
-            margin: 10px 0;
         }
         .shop-now {
             background-color: white;
@@ -86,16 +82,34 @@
         .offer-card {
             background-color: #e0f7fa;
             border-radius: 15px;
-            width: 200px;
+            width: 220px;
             text-align: center;
             padding: 15px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         .offer-card img {
             width: 100%;
-            height: 150px;
-            background-color: #bbb;
+            height: 200px;
+            object-fit: contain;
             border-radius: 10px;
+        }
+        .original-price {
+            text-decoration: line-through;
+            color: #888;
+        }
+        .discount-price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #e91e63;
+        }
+        .whatsapp-btn {
+            background-color: #25D366;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: block;
+            margin-top: 10px;
         }
         .whatsapp-float {
             position: fixed;
@@ -127,9 +141,6 @@
             color: white;
             text-decoration: none;
         }
-        .nav-item i {
-            font-size: 20px;
-        }
         footer {
             text-align: center;
             padding: 20px;
@@ -150,7 +161,7 @@
 <body>
 
     <header>
-        <div class="logo">Gedgets Ghor BD</div>
+        <img src="images/logo.png" alt="Gadgets Ghor BD Logo" class="logo-img"> <!-- এখানে আপনার লোগো ইমেজের পাথ দিন -->
         <a href="tel:01713574848" class="call-btn">
             <i class="fas fa-phone"></i> Call
         </a>
@@ -171,41 +182,57 @@
                 <p>New Arrival</p>
             </div>
             <div class="cat-item">
-                <img src="https://via.placeholder.com/60" alt="T-Shirt">
-                <p>T-Shirt</p>
+                <img src="https://via.placeholder.com/60" alt="Earbuds">
+                <p>Earbuds</p>
             </div>
             <div class="cat-item">
-                <img src="https://via.placeholder.com/60" alt="Gaming">
-                <p>Gaming Accessories</p>
+                <img src="https://via.placeholder.com/60" alt="Power Bank">
+                <p>Power Bank</p>
             </div>
             <div class="cat-item">
-                <img src="https://via.placeholder.com/60" alt="Airpods">
-                <p>Airpods</p>
+                <img src="https://via.placeholder.com/60" alt="Selfie Stick">
+                <p>Selfie Stick</p>
             </div>
-        </div>
-        <div style="display:flex; justify-content:space-around; margin-top:20px;">
-            <div><i class="fas fa-truck"></i> Free Delivery</div>
-            <div><i class="fas fa-tags"></i> Best Discount</div>
         </div>
     </section>
 
     <section class="offers">
-        <h2>Combined Offers</h2>
+        <h2>Hot Offers</h2>
         <div class="offer-grid">
+            <!-- প্রোডাক্ট ১: AirPods Pro -->
             <div class="offer-card">
-                <img src="https://via.placeholder.com/200x150" alt="EID Offer">
-                <h3>EID OFFER</h3>
-                <a href="https://wa.me/8801713574848?text=আমি%20EID%20Offer%20প্রোডাক্ট%20অর্ডার%20করতে%20চাই" style="color:#e91e63;">Order via WhatsApp</a>
+                <img src="images/airpods.jpg" alt="AirPods Pro 2nd Generation"> <!-- আপনার ইমেজ পাথ -->
+                <h3>AirPods Pro 2nd Generation</h3>
+                <p>Made in Dubai Wireless Charging Bluetooth Earbuds</p>
+                <p class="original-price">৳2,500</p>
+                <p class="discount-price">৳457</p>
+                <a href="https://wa.me/8801713574848?text=আমি%20AirPods%20Pro%202nd%20Generation%20অর্ডার%20করতে%20চাই%20(%E0%A7%B3%E0%A7%AA%E0%A7%AB%E0%A7%AD)" class="whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i> Order via WhatsApp
+                </a>
             </div>
+
+            <!-- প্রোডাক্ট ২: JOYROOM Power Bank -->
             <div class="offer-card">
-                <img src="https://via.placeholder.com/200x150" alt="Free Delivery">
-                <h3>FREE DELIVERY</h3>
-                <a href="https://wa.me/8801713574848?text=আমি%20Free%20Delivery%20অফার%20নিতে%20চাই" style="color:#e91e63;">Order via WhatsApp</a>
+                <img src="images/powerbank.jpg" alt="JOYROOM Power Bank"> <!-- আপনার ইমেজ পাথ -->
+                <h3>JOYROOM Power Bank</h3>
+                <p>10000mAh 2.4A LED Power Bank</p>
+                <p class="original-price">৳1,190</p>
+                <p class="discount-price">৳999</p>
+                <a href="https://wa.me/8801713574848?text=আমি%20JOYROOM%20Power%20Bank%2010000mAh%20অর্ডার%20করতে%20চাই%20(%E0%A7%B3%E0%A7%AF%E0%A7%AF%E0%A7%AF)" class="whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i> Order via WhatsApp
+                </a>
             </div>
+
+            <!-- প্রোডাক্ট ৩: Selfie Stick -->
             <div class="offer-card">
-                <img src="https://via.placeholder.com/200x150" alt="Hot Deals">
-                <h3>HOT DEALS</h3>
-                <a href="https://wa.me/8801713574848?text=আমি%20Hot%20Deals%20প্রোডাক্ট%20অর্ডার%20করতে%20চাই" style="color:#e91e63;">Order via WhatsApp</a>
+                <img src="images/selfie-stick.jpg" alt="P20S Selfie Stick"> <!-- আপনার ইমেজ পাথ -->
+                <h3>P20S Bluetooth Selfie Stick</h3>
+                <p>With Light & Remote Control</p>
+                <p class="original-price">৳550</p>
+                <p class="discount-price">৳499</p>
+                <a href="https://wa.me/8801713574848?text=আমি%20P20S%20Selfie%20Stick%20অর্ডার%20করতে%20চাই%20(%E0%A7%B3%E0%A7%AA%E0%A7%AF%E0%A7%AF)" class="whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i> Order via WhatsApp
+                </a>
             </div>
         </div>
     </section>
@@ -220,14 +247,13 @@
         <a href="#" class="nav-item"><i class="fas fa-heart"></i><br>Favorite</a>
         <a href="#" class="nav-item"><i class="fas fa-comment"></i><br>Message</a>
         <a href="#" class="nav-item"><i class="fas fa-shopping-cart"></i><br>Items</a>
-        <a href="#" class="nav-item"><i class="fas fa-user"></i><br>Log in</a>
     </div>
 
     <footer>
         <p>Created by Zitu</p>
-        <p>WhatsApp: 01713574848 | Facebook: <a href="https://facebook.com/Gedget" style="color:#e91e63;">Gedget</a></p>
+        <p>WhatsApp: 01713574848 | Facebook: Gedget</p>
         <p>অর্ডার করুন হোয়াটসঅ্যাপে</p>
-        <div class="domain">gedgetshorbd.com</div>
+        <div class="domain">gadgetsghorbd.com</div>
     </footer>
 
 </body>
