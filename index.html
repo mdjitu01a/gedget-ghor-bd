@@ -1,99 +1,58 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
   <title>Gadgets Ghor BD</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    body{
-      margin:0;
-      font-family: Arial, Helvetica, sans-serif;
-      background:#f9fafb;
-      color:#111;
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
     }
-    header{
-      background:linear-gradient(135deg,#2563eb,#1e40af);
-      color:white;
-      padding:30px 15px;
-      text-align:center;
+    header {
+      background: #0d6efd;
+      color: white;
+      padding: 20px;
+      text-align: center;
     }
-    header h1{margin:0;font-size:30px;}
-    header p{margin-top:8px;color:#e0e7ff;}
-
-    .container{
-      max-width:1100px;
-      margin:30px auto;
-      padding:0 15px;
+    .container {
+      padding: 15px;
     }
-
-    .products{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:20px;
+    .product {
+      background: white;
+      margin-bottom: 15px;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
     }
-
-    .card{
-      background:white;
-      border-radius:16px;
-      box-shadow:0 10px 25px rgba(0,0,0,0.08);
-      overflow:hidden;
-      position:relative;
+    .product h3 {
+      margin: 0 0 10px;
     }
-
-    .badge{
-      position:absolute;
-      top:12px;
-      left:12px;
-      background:#ef4444;
-      color:white;
-      padding:6px 10px;
-      font-size:13px;
-      border-radius:20px;
-      font-weight:bold;
+    .price {
+      color: #d63384;
+      font-weight: bold;
     }
-
-    .card img{
-      width:100%;
-      height:200px;
-      object-fit:cover;
+    .old {
+      text-decoration: line-through;
+      color: gray;
     }
-
-    .card-body{
-      padding:15px;
+    footer {
+      background: #222;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-size: 14px;
     }
-
-    .card-body h3{
-      margin:0 0 6px;
-      font-size:20px;
-    }
-
-    .price{
-      font-size:16px;
-      margin-bottom:12px;
-    }
-
-    .price del{
-      color:#9ca3af;
-      margin-right:6px;
-    }
-
-    .btn{
-      display:block;
-      text-align:center;
-      background:#22c55e;
-      color:#052e16;
-      padding:12px;
-      border-radius:10px;
-      text-decoration:none;
-      font-weight:bold;
-    }
-
-    footer{
-      text-align:center;
-      padding:20px;
-      color:#6b7280;
-      font-size:14px;
+    .btn {
+      display: inline-block;
+      background: #198754;
+      color: white;
+      padding: 8px 12px;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 8px;
     }
   </style>
 </head>
@@ -101,64 +60,40 @@
 
 <header>
   <h1>Gadgets Ghor BD</h1>
-  <p>বিশ্বস্ত অনলাইন গ্যাজেট শপ</p>
+  <p>Smart Online Shop</p>
 </header>
 
-<main class="container">
-  <h2>আমাদের পণ্যসমূহ</h2>
+<div class="container">
 
-  <section class="products">
+  <div class="product">
+    <h3>AirPods Pro 2nd Generation</h3>
+    <p class="old">৳2,500</p>
+    <p class="price">Discount: ৳460</p>
+    <p>Delivery: ৳120</p>
+    <a class="btn" href="https://wa.me/8801713574848">Buy on WhatsApp</a>
+  </div>
 
-    <!-- Smart Watch -->
-    <div class="card">
-      <div class="badge">২০% ছাড়</div>
-      <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9" alt="Smart Watch">
-      <div class="card-body">
-        <h3>স্মার্ট ওয়াচ</h3>
-        <div class="price">
-          <del>৳ 3200</del> <strong>৳ 2500</strong>
-        </div>
-        <a class="btn" href="https://wa.me/8801713574848?text=আমি%20স্মার্ট%20ওয়াচ%20অর্ডার%20করতে%20চাই" target="_blank">
-          WhatsApp এ অর্ডার করুন
-        </a>
-      </div>
-    </div>
+  <div class="product">
+    <h3>Joyroom JR-PBF12 10000mAh Power Bank</h3>
+    <p class="old">৳2,000</p>
+    <p class="price">Discount: ৳999</p>
+    <a class="btn" href="https://wa.me/8801713574848">Buy on WhatsApp</a>
+  </div>
 
-    <!-- Earbuds -->
-    <div class="card">
-      <div class="badge">বেস্ট সেলার</div>
-      <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad" alt="Earbuds">
-      <div class="card-body">
-        <h3>ওয়্যারলেস ইয়ারবাডস</h3>
-        <div class="price">
-          <del>৳ 2200</del> <strong>৳ 1800</strong>
-        </div>
-        <a class="btn" href="https://wa.me/8801713574848?text=আমি%20ইয়ারবাডস%20অর্ডার%20করতে%20চাই" target="_blank">
-          WhatsApp এ অর্ডার করুন
-        </a>
-      </div>
-    </div>
+  <div class="product">
+    <h3>Q07 Selfie Stick & Mini Tripod</h3>
+    <p class="old">৳450</p>
+    <p class="price">Discount: ৳366</p>
+    <a class="btn" href="https://wa.me/8801713574848">Buy on WhatsApp</a>
+  </div>
 
-    <!-- Power Bank -->
-    <div class="card">
-      <div class="badge">নতুন</div>
-      <img src="https://images.unsplash.com/photo-1603791440384-56cd371ee9a7" alt="Power Bank">
-      <div class="card-body">
-        <h3>পাওয়ার ব্যাংক</h3>
-        <div class="price">
-          <del>৳ 1600</del> <strong>৳ 1200</strong>
-        </div>
-        <a class="btn" href="https://wa.me/8801713574848?text=আমি%20পাওয়ার%20ব্যাংক%20অর্ডার%20করতে%20চাই" target="_blank">
-          WhatsApp এ অর্ডার করুন
-        </a>
-      </div>
-    </div>
-
-  </section>
-</main>
+</div>
 
 <footer>
-  © ২০২৬ Gadgets Ghor BD | সর্বস্বত্ব সংরক্ষিত
+  <p>Website Design by Abdur Rahman</p>
+  <p>WhatsApp: 01713574848</p>
+  <p>Facebook: Gadget Ghor BD</p>
+  <p>Email: gedgetghorbd.a@gmail.com</p>
 </footer>
 
 </body>
