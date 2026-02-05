@@ -5,16 +5,29 @@
   <title>গ্যাজেটস ঘর বিডি</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body{font-family:Arial,sans-serif;background:#f4f4f4;margin:0}
+    body{font-family:Arial,sans-serif;background:#f4f4f4;margin:0;padding:0;}
     header{background:#0d6efd;color:#fff;padding:20px;text-align:center}
     header img{max-width:120px;display:block;margin:0 auto 10px}
-    .container{padding:15px}
-    .product{background:#fff;margin-bottom:20px;padding:15px;border-radius:8px;box-shadow:0 0 5px rgba(0,0,0,.1)}
-    .product img{width:100%;max-height:220px;object-fit:contain}
-    .price{color:#d63384;font-weight:bold}
-    .old{text-decoration:line-through;color:gray}
-    .btn{display:inline-block;background:#25D366;color:white;padding:10px 15px;text-decoration:none;border-radius:5px;margin-top:10px}
+    .container{padding:15px; display:grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap:20px;}
+
+    .product{background:#fff;padding:15px;border-radius:8px;box-shadow:0 0 5px rgba(0,0,0,.1); display:flex; flex-direction:column; justify-content:space-between;}
+    .product img{width:100%;height:200px;object-fit:cover;border-radius:5px;}
+    .price{color:#d63384;font-weight:bold;}
+    .old{text-decoration:line-through;color:gray;margin-right:10px;}
+    
+    .btn{display:inline-block;color:white;padding:10px 15px;text-decoration:none;border-radius:5px;margin-top:10px;margin-right:5px;font-size:14px; text-align:center;}
+    .btn-whatsapp{background:#25D366;}
+    .btn-bkash{background:#e60000;}
+    .btn-nagad{background:#ff6600;}
+    .btn:hover{opacity:0.9;transition:0.3s}
+
     footer{background:#222;color:#fff;padding:15px;text-align:center;font-size:14px}
+
+    /* Responsive tweaks */
+    @media (max-width: 500px) {
+      .product img{height:180px;}
+      .btn{font-size:13px;padding:8px 12px;}
+    }
   </style>
 </head>
 <body>
@@ -27,38 +40,51 @@
 
 <div class="container">
 
+  <!-- AirPods -->
   <div class="product">
     <img src="airpods.jpg" alt="AirPods">
     <h3>এয়ারপডস প্রো (২য় জেনারেশন)</h3>
-    <p class="old">৳ ২,৫০০</p>
-    <p class="price">ডিসকাউন্ট: ৳ ৪৬০</p>
+    <p><span class="old">৳ ২,৫০০</span> <span class="price">৳ ৪৬০</span></p>
     <p>ডেলিভারি চার্জ: ৳ ১২০</p>
-    <a class="btn" href="https://wa.me/8801713574848?text=আমি%20AirPods%20অর্ডার%20করতে%20চাই।%20নাম:%20%20ঠিকানা:%20" target="_blank">WhatsApp এ অর্ডার করুন</a>
+    <div>
+      <a class="btn btn-whatsapp" href="https://wa.me/8801713574848?text=আমি%20AirPods%20অর্ডার%20করতে%20চাই।%20নাম:________%20ঠিকানা:________" target="_blank">WhatsApp</a>
+      <a class="btn btn-bkash" href="https://www.bkash.com/payment?recipient=01713574848&amount=460&note=AirPods" target="_blank">bKash</a>
+      <a class="btn btn-nagad" href="https://nagad.com.bd/payment?recipient=01713574848&amount=460&note=AirPods" target="_blank">Nagad</a>
+    </div>
   </div>
 
+  <!-- Power Bank -->
   <div class="product">
     <img src="powerbank.jpg" alt="Power Bank">
     <h3>Joyroom 10000mAh পাওয়ার ব্যাংক</h3>
-    <p class="old">৳ ২,০০০</p>
-    <p class="price">ডিসকাউন্ট: ৳ ৯৯৯</p>
-    <a class="btn" href="https://wa.me/8801713574848?text=আমি%20Power%20Bank%20অর্ডার%20করতে%20চাই।%20নাম:%20%20ঠিকানা:%20" target="_blank">WhatsApp এ অর্ডার করুন</a>
+    <p><span class="old">৳ ২,০০০</span> <span class="price">৳ ৯৯৯</span></p>
+    <div>
+      <a class="btn btn-whatsapp" href="https://wa.me/8801713574848?text=আমি%20Power%20Bank%20অর্ডার%20করতে%20চাই।%20নাম:________%20ঠিকানা:________" target="_blank">WhatsApp</a>
+      <a class="btn btn-bkash" href="https://www.bkash.com/payment?recipient=01713574848&amount=999&note=PowerBank" target="_blank">bKash</a>
+      <a class="btn btn-nagad" href="https://nagad.com.bd/payment?recipient=01713574848&amount=999&note=PowerBank" target="_blank">Nagad</a>
+    </div>
   </div>
 
+  <!-- Selfie Stick -->
   <div class="product">
     <img src="selfiestick.jpg" alt="Selfie Stick">
     <h3>Q07 সেলফি স্টিক ও ট্রাইপড</h3>
-    <p class="old">৳ ৪৫০</p>
-    <p class="price">ডিসকাউন্ট: ৳ ৩৬৬</p>
-    <a class="btn" href="https://wa.me/8801713574848?text=আমি%20Selfie%20Stick%20অর্ডার%20করতে%20চাই।%20নাম:%20%20ঠিকানা:%20" target="_blank">WhatsApp এ অর্ডার করুন</a>
-  </div><footer>
-  <p>WhatsApp: 01713574848</p>
-  <p>Facebook: Gadget Ghor BD</p>
-  <p>Email: gedgetghorbd.a@gmail.com</p>
-  <p><b>This
-<div class="product">
-  <h3>💳 পেমেন্ট তথ্য</h3>
-  <p>অ্যাডভান্স ডেলিভারি চার্জ দিতে হবে</p>
-  <p><b>Bkash:</b> 01713574848</p>
-  <p><b>Nagad:</b> 01713574848</p>
-  <p>📌 পেমেন্ট করার পর WhatsApp এ স্ক্রিনশট পাঠান</p>
+    <p><span class="old">৳ ৪৫০</span> <span class="price">৳ ৩৬৬</span></p>
+    <div>
+      <a class="btn btn-whatsapp" href="https://wa.me/8801713574848?text=আমি%20Selfie%20Stick%20অর্ডার%20করতে%20চাই।%20নাম:________%20ঠিকানা:________" target="_blank">WhatsApp</a>
+      <a class="btn btn-bkash" href="https://www.bkash.com/payment?recipient=01713574848&amount=366&note=SelfieStick" target="_blank">bKash</a>
+      <a class="btn btn-nagad" href="https://nagad.com.bd/payment?recipient=01713574848&amount=366&note=SelfieStick" target="_blank">Nagad</a>
+    </div>
+  </div>
+
 </div>
+
+<footer>
+  <p>WhatsApp: <a href="https://wa.me/8801713574848" target="_blank">01713574848</a></p>
+  <p>Facebook: <a href="https://www.facebook.com/GadgetGhorBD" target="_blank">Gadget Ghor BD</a></p>
+  <p>Email: <a href="mailto:gedgetghorbd.a@gmail.com">gedgetghorbd.a@gmail.com</a></p>
+  <p><b>This site made by Zitu</b></p>
+</footer>
+
+</body>
+</html>
