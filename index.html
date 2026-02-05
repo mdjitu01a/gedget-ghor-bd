@@ -1,137 +1,225 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
-<meta charset="UTF-8">
-<title>Gadgets Ghor BD</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-body{font-family:Arial,sans-serif;background:#f4f4f4;margin:0;padding:0;}
-header{background:#0d6efd;color:#fff;padding:20px;text-align:center}
-header img{max-width:120px;display:block;margin:0 auto 10px}
-.container{padding:15px; display:grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap:20px;}
-.product{background:#fff;padding:15px;border-radius:8px;box-shadow:0 0 5px rgba(0,0,0,.1); display:flex; flex-direction:column; justify-content:space-between;}
-.product img{width:100%;height:200px;object-fit:cover;border-radius:5px;}
-.price{color:#d63384;font-weight:bold;}
-.old{text-decoration:line-through;color:gray;margin-right:10px;}
-.btn{display:inline-block;color:white;padding:10px 15px;text-decoration:none;border-radius:5px;margin-top:10px;margin-right:5px;font-size:14px; text-align:center; cursor:pointer;}
-.btn-whatsapp{background:#25D366;}
-.btn-bkash{background:#e60000;}
-.btn-nagad{background:#ff6600;}
-.btn-add{background:#0d6efd;}
-.btn:hover{opacity:0.9;transition:0.3s}
-.cart{background:#fff;padding:15px;border-radius:8px;box-shadow:0 0 5px rgba(0,0,0,.1); margin-top:20px;}
-.cart h3{margin-top:0;}
-.cart-items{list-style:none;padding:0;}
-.cart-items li{margin-bottom:8px;}
-footer{background:#222;color:#fff;padding:15px;text-align:center;font-size:14px}
-@media (max-width: 500px) {
-  .product img{height:180px;}
-  .btn{font-size:13px;padding:8px 12px;}
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gadgets Ghor BD</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Header -->
+  <header>
+    <div class="logo">Gadgets Ghor BD</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Shop</a>
+      <a href="#">Offers</a>
+      <a href="#">Contact</a>
+      <a href="#" id="cart-btn">Cart 🛒<span id="cart-count">0</span></a>
+    </nav>
+  </header>
 
-<header>
-  <img src="logo.png" alt="Gadgets Ghor BD Logo">
-  <h1>Gadgets Ghor BD</h1>
-  <p>Smart Online Shop</p>
-</header>
+  <!-- Banner -->
+  <section class="banner">
+    <h1>স্বাগতম Gadgets Ghor BD এ!</h1>
+    <p>সকল প্রোডাক্ট এখন সহজেই আপনার হাতে</p>
+    <button>Shop Now</button>
+  </section>
 
-<div class="container" id="products">
+  <!-- Categories Filter -->
+  <section class="categories">
+    <button class="filter-btn" data-category="all">All</button>
+    <button class="filter-btn" data-category="gadget">Gadget</button>
+    <button class="filter-btn" data-category="watch">ঘড়ি</button>
+    <button class="filter-btn" data-category="home">Home</button>
+  </section>
 
-  <!-- AirPods -->
-  <div class="product">
-    <img src="airpods.jpg" alt="AirPods">
-    <h3>AirPods Pro (2nd Generation)</h3>
-    <p><span class="old">৳ 2,500</span> <span class="price">৳ 460</span></p>
-    <p>Delivery Charge: ৳ 120</p>
-    <button class="btn btn-add" onclick="addToCart('AirPods Pro', 460)">Add to Cart</button>
-  </div>
+  <!-- Products -->
+  <section class="products">
+    <h2>নতুন প্রোডাক্ট</h2>
+    <div class="product-list">
+      <div class="product" data-category="gadget">
+        <span class="badge">10% OFF</span>
+        <img src="https://via.placeholder.com/150" alt="Wireless Headphone">
+        <h3>Wireless Headphone</h3>
+        <p>৳1500</p>
+        <button class="add-cart">Add to Cart</button>
+      </div>
 
-  <!-- Power Bank -->
-  <div class="product">
-    <img src="powerbank.jpg" alt="Power Bank">
-    <h3>Joyroom 10000mAh Power Bank</h3>
-    <p><span class="old">৳ 2,000</span> <span class="price">৳ 999</span></p>
-    <button class="btn btn-add" onclick="addToCart('Power Bank', 999)">Add to Cart</button>
-  </div>
+      <div class="product" data-category="watch">
+        <span class="badge">20% OFF</span>
+        <img src="https://via.placeholder.com/150" alt="Smart Watch">
+        <h3>Smart Watch</h3>
+        <p>৳3000</p>
+        <button class="add-cart">Add to Cart</button>
+      </div>
 
-  <!-- Selfie Stick -->
-  <div class="product">
-    <img src="selfiestick.jpg" alt="Selfie Stick">
-    <h3>Q07 Selfie Stick & Tripod</h3>
-    <p><span class="old">৳ 450</span> <span class="price">৳ 366</span></p>
-    <button class="btn btn-add" onclick="addToCart('Selfie Stick', 366)">Add to Cart</button>
-  </div>
+      <div class="product" data-category="gadget">
+        <span class="badge">15% OFF</span>
+        <img src="https://via.placeholder.com/150" alt="Airpods">
+        <h3>Airpods</h3>
+        <p>৳2500</p>
+        <button class="add-cart">Add to Cart</button>
+      </div>
 
-</div>
+      <div class="product" data-category="home">
+        <span class="badge">5% OFF</span>
+        <img src="https://via.placeholder.com/150" alt="Table Lamp">
+        <h3>Table Lamp</h3>
+        <p>৳1200</p>
+        <button class="add-cart">Add to Cart</button>
+      </div>
+    </div>
+  </section>
 
-<!-- Cart Section -->
-<div class="container">
-  <div class="cart" id="cart">
-    <h3>Your Cart</h3>
-    <ul class="cart-items" id="cart-items"></ul>
-    <p><b>Total: ৳<span id="total">0</span></b></p>
-    <a id="whatsapp-btn" class="btn btn-whatsapp" href="#" target="_blank" style="display:none">Order via WhatsApp</a>
-    <a id="bkash-btn" class="btn btn-bkash" href="#" target="_blank" style="display:none">Pay with bKash</a>
-    <a id="nagad-btn" class="btn btn-nagad" href="#" target="_blank" style="display:none">Pay with Nagad</a>
-  </div>
-</div>
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Gadgets Ghor BD | All Rights Reserved</p>
+  </footer>
 
-<footer>
-  <p>WhatsApp: <a href="https://wa.me/8801713574848" target="_blank">01713574848</a></p>
-  <p>Facebook: <a href="https://www.facebook.com/GadgetGhorBD" target="_blank">Gadget Ghor BD</a></p>
-  <p>Email: <a href="mailto:gedgetghorbd.a@gmail.com">gedgetghorbd.a@gmail.com</a></p>
-  <p><b>This site made by Zitu</b></p>
-</footer>
-
-<script>
-let cart = [];
-
-function addToCart(name, price){
-  cart.push({name, price});
-  renderCart();
-}
-
-function renderCart(){
-  const cartItems = document.getElementById('cart-items');
-  const totalEl = document.getElementById('total');
-  const whatsappBtn = document.getElementById('whatsapp-btn');
-  const bkashBtn = document.getElementById('bkash-btn');
-  const nagadBtn = document.getElementById('nagad-btn');
-
-  cartItems.innerHTML = '';
-  let total = 0;
-  let productNames = [];
-
-  cart.forEach(item => {
-    const li = document.createElement('li');
-    li.textContent = `${item.name} - ৳${item.price}`;
-    cartItems.appendChild(li);
-    total += item.price;
-    productNames.push(item.name);
-  });
-
-  totalEl.textContent = total;
-
-  if(cart.length > 0){
-    const namesText = encodeURIComponent(productNames.join(', '));
-    whatsappBtn.style.display = 'inline-block';
-    whatsappBtn.href = `https://wa.me/8801713574848?text=I want to order these products: ${namesText}. Name:________ Address:________`;
-    
-    bkashBtn.style.display = 'inline-block';
-    bkashBtn.href = `https://www.bkash.com/payment?recipient=01713574848&amount=${total}&note=${namesText}`;
-    
-    nagadBtn.style.display = 'inline-block';
-    nagadBtn.href = `https://nagad.com.bd/payment?recipient=01713574848&amount=${total}&note=${namesText}`;
-  } else {
-    whatsappBtn.style.display = 'none';
-    bkashBtn.style.display = 'none';
-    nagadBtn.style.display = 'none';
-  }
-}
-</script>
-
+  <script src="script.js"></script>
 </body>
-</html>
+</html>body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Sticky Header */
+header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ff6f61;
+  padding: 10px 20px;
+  color: white;
+  z-index: 1000;
+}
+header .logo { font-size: 24px; font-weight: bold; }
+header nav a {
+  margin-left: 15px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Banner */
+.banner {
+  text-align: center;
+  padding: 60px 20px;
+  background: #ffe0dc;
+}
+.banner h1 { font-size: 36px; }
+.banner button {
+  padding: 10px 20px;
+  font-size: 18px;
+  margin-top: 20px;
+  background: #ff6f61;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* Categories */
+.categories {
+  text-align: center;
+  margin: 20px 0;
+}
+.categories .filter-btn {
+  padding: 8px 15px;
+  margin: 0 5px;
+  cursor: pointer;
+  border: 1px solid #ff6f61;
+  background: white;
+  color: #ff6f61;
+  font-weight: bold;
+  border-radius: 5px;
+}
+.categories .filter-btn:hover {
+  background: #ff6f61;
+  color: white;
+}
+
+/* Products */
+.products {
+  padding: 40px 20px;
+  text-align: center;
+}
+.product-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.product {
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 200px;
+  position: relative;
+  transition: transform 0.2s;
+}
+.product:hover { transform: translateY(-5px); }
+.product img { width: 100%; }
+.product button {
+  padding: 8px 12px;
+  background: #ff6f61;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: red;
+  color: white;
+  padding: 3px 7px;
+  font-size: 12px;
+  border-radius: 3px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #333;
+  color: white;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .product-list { flex-direction: column; align-items: center; }
+  header { flex-direction: column; gap: 10px; }
+}let cartCount = 0;
+
+// Add to Cart
+const addCartButtons = document.querySelectorAll('.add-cart');
+const cartCounter = document.getElementById('cart-count');
+
+addCartButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    cartCount++;
+    cartCounter.textContent = cartCount;
+    alert('প্রোডাক্ট কার্টে যোগ করা হয়েছে!');
+  });
+});
+
+// Category Filter
+const filterBtns = document.querySelectorAll('.filter-btn');
+const products = document.querySelectorAll('.product');
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const category = btn.dataset.category;
+    products.forEach(p => {
+      if(category === 'all' || p.dataset.category === category) {
+        p.style.display = 'block';
+      } else {
+        p.style.display = 'none';
+      }
+    });
+  });
+});
