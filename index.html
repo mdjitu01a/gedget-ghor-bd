@@ -1,34 +1,34 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <title>গ্যাজেটস ঘর বিডি</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body{font-family:Arial,sans-serif;background:#f4f4f4;margin:0;padding:0;}
-    header{background:#0d6efd;color:#fff;padding:20px;text-align:center}
-    header img{max-width:120px;display:block;margin:0 auto 10px}
-    .container{padding:15px; display:grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap:20px;}
-
-    .product{background:#fff;padding:15px;border-radius:8px;box-shadow:0 0 5px rgba(0,0,0,.1); display:flex; flex-direction:column; justify-content:space-between;}
-    .product img{width:100%;height:200px;object-fit:cover;border-radius:5px;}
-    .price{color:#d63384;font-weight:bold;}
-    .old{text-decoration:line-through;color:gray;margin-right:10px;}
-    
-    .btn{display:inline-block;color:white;padding:10px 15px;text-decoration:none;border-radius:5px;margin-top:10px;margin-right:5px;font-size:14px; text-align:center;}
-    .btn-whatsapp{background:#25D366;}
-    .btn-bkash{background:#e60000;}
-    .btn-nagad{background:#ff6600;}
-    .btn:hover{opacity:0.9;transition:0.3s}
-
-    footer{background:#222;color:#fff;padding:15px;text-align:center;font-size:14px}
-
-    /* Responsive tweaks */
-    @media (max-width: 500px) {
-      .product img{height:180px;}
-      .btn{font-size:13px;padding:8px 12px;}
-    }
-  </style>
+<meta charset="UTF-8">
+<title>গ্যাজেটস ঘর বিডি</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{font-family:Arial,sans-serif;background:#f4f4f4;margin:0;padding:0;}
+header{background:#0d6efd;color:#fff;padding:20px;text-align:center}
+header img{max-width:120px;display:block;margin:0 auto 10px}
+.container{padding:15px; display:grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap:20px;}
+.product{background:#fff;padding:15px;border-radius:8px;box-shadow:0 0 5px rgba(0,0,0,.1); display:flex; flex-direction:column; justify-content:space-between;}
+.product img{width:100%;height:200px;object-fit:cover;border-radius:5px;}
+.price{color:#d63384;font-weight:bold;}
+.old{text-decoration:line-through;color:gray;margin-right:10px;}
+.btn{display:inline-block;color:white;padding:10px 15px;text-decoration:none;border-radius:5px;margin-top:10px;margin-right:5px;font-size:14px; text-align:center; cursor:pointer;}
+.btn-whatsapp{background:#25D366;}
+.btn-bkash{background:#e60000;}
+.btn-nagad{background:#ff6600;}
+.btn-add{background:#0d6efd;}
+.btn:hover{opacity:0.9;transition:0.3s}
+.cart{background:#fff;padding:15px;border-radius:8px;box-shadow:0 0 5px rgba(0,0,0,.1); margin-top:20px;}
+.cart h3{margin-top:0;}
+.cart-items{list-style:none;padding:0;}
+.cart-items li{margin-bottom:8px;}
+footer{background:#222;color:#fff;padding:15px;text-align:center;font-size:14px}
+@media (max-width: 500px) {
+  .product img{height:180px;}
+  .btn{font-size:13px;padding:8px 12px;}
+}
+</style>
 </head>
 <body>
 
@@ -38,7 +38,7 @@
   <p>স্মার্ট অনলাইন শপ</p>
 </header>
 
-<div class="container">
+<div class="container" id="products">
 
   <!-- AirPods -->
   <div class="product">
@@ -46,11 +46,7 @@
     <h3>এয়ারপডস প্রো (২য় জেনারেশন)</h3>
     <p><span class="old">৳ ২,৫০০</span> <span class="price">৳ ৪৬০</span></p>
     <p>ডেলিভারি চার্জ: ৳ ১২০</p>
-    <div>
-      <a class="btn btn-whatsapp" href="https://wa.me/8801713574848?text=আমি%20AirPods%20অর্ডার%20করতে%20চাই।%20নাম:________%20ঠিকানা:________" target="_blank">WhatsApp</a>
-      <a class="btn btn-bkash" href="https://www.bkash.com/payment?recipient=01713574848&amount=460&note=AirPods" target="_blank">bKash</a>
-      <a class="btn btn-nagad" href="https://nagad.com.bd/payment?recipient=01713574848&amount=460&note=AirPods" target="_blank">Nagad</a>
-    </div>
+    <button class="btn btn-add" onclick="addToCart('এয়ারপডস প্রো', 460)">Add to Cart</button>
   </div>
 
   <!-- Power Bank -->
@@ -58,11 +54,7 @@
     <img src="powerbank.jpg" alt="Power Bank">
     <h3>Joyroom 10000mAh পাওয়ার ব্যাংক</h3>
     <p><span class="old">৳ ২,০০০</span> <span class="price">৳ ৯৯৯</span></p>
-    <div>
-      <a class="btn btn-whatsapp" href="https://wa.me/8801713574848?text=আমি%20Power%20Bank%20অর্ডার%20করতে%20চাই।%20নাম:________%20ঠিকানা:________" target="_blank">WhatsApp</a>
-      <a class="btn btn-bkash" href="https://www.bkash.com/payment?recipient=01713574848&amount=999&note=PowerBank" target="_blank">bKash</a>
-      <a class="btn btn-nagad" href="https://nagad.com.bd/payment?recipient=01713574848&amount=999&note=PowerBank" target="_blank">Nagad</a>
-    </div>
+    <button class="btn btn-add" onclick="addToCart('Power Bank', 999)">Add to Cart</button>
   </div>
 
   <!-- Selfie Stick -->
@@ -70,13 +62,21 @@
     <img src="selfiestick.jpg" alt="Selfie Stick">
     <h3>Q07 সেলফি স্টিক ও ট্রাইপড</h3>
     <p><span class="old">৳ ৪৫০</span> <span class="price">৳ ৩৬৬</span></p>
-    <div>
-      <a class="btn btn-whatsapp" href="https://wa.me/8801713574848?text=আমি%20Selfie%20Stick%20অর্ডার%20করতে%20চাই।%20নাম:________%20ঠিকানা:________" target="_blank">WhatsApp</a>
-      <a class="btn btn-bkash" href="https://www.bkash.com/payment?recipient=01713574848&amount=366&note=SelfieStick" target="_blank">bKash</a>
-      <a class="btn btn-nagad" href="https://nagad.com.bd/payment?recipient=01713574848&amount=366&note=SelfieStick" target="_blank">Nagad</a>
-    </div>
+    <button class="btn btn-add" onclick="addToCart('Selfie Stick', 366)">Add to Cart</button>
   </div>
 
+</div>
+
+<!-- Cart Section -->
+<div class="container">
+  <div class="cart" id="cart">
+    <h3>আপনার কার্ট</h3>
+    <ul class="cart-items" id="cart-items"></ul>
+    <p><b>মোট: ৳<span id="total">0</span></b></p>
+    <a id="whatsapp-btn" class="btn btn-whatsapp" href="#" target="_blank" style="display:none">WhatsApp এ অর্ডার করুন</a>
+    <a id="bkash-btn" class="btn btn-bkash" href="#" target="_blank" style="display:none">bKash দিয়ে পেমেন্ট</a>
+    <a id="nagad-btn" class="btn btn-nagad" href="#" target="_blank" style="display:none">Nagad দিয়ে পেমেন্ট</a>
+  </div>
 </div>
 
 <footer>
@@ -85,6 +85,53 @@
   <p>Email: <a href="mailto:gedgetghorbd.a@gmail.com">gedgetghorbd.a@gmail.com</a></p>
   <p><b>This site made by Zitu</b></p>
 </footer>
+
+<script>
+let cart = [];
+
+function addToCart(name, price){
+  cart.push({name, price});
+  renderCart();
+}
+
+function renderCart(){
+  const cartItems = document.getElementById('cart-items');
+  const totalEl = document.getElementById('total');
+  const whatsappBtn = document.getElementById('whatsapp-btn');
+  const bkashBtn = document.getElementById('bkash-btn');
+  const nagadBtn = document.getElementById('nagad-btn');
+
+  cartItems.innerHTML = '';
+  let total = 0;
+  let productNames = [];
+
+  cart.forEach(item => {
+    const li = document.createElement('li');
+    li.textContent = `${item.name} - ৳${item.price}`;
+    cartItems.appendChild(li);
+    total += item.price;
+    productNames.push(item.name);
+  });
+
+  totalEl.textContent = total;
+
+  if(cart.length > 0){
+    const namesText = encodeURIComponent(productNames.join(', '));
+    whatsappBtn.style.display = 'inline-block';
+    whatsappBtn.href = `https://wa.me/8801713574848?text=আমি এই প্রোডাক্টগুলো অর্ডার করতে চাই: ${namesText}। নাম:________ ঠিকানা:________`;
+    
+    bkashBtn.style.display = 'inline-block';
+    bkashBtn.href = `https://www.bkash.com/payment?recipient=01713574848&amount=${total}&note=${namesText}`;
+    
+    nagadBtn.style.display = 'inline-block';
+    nagadBtn.href = `https://nagad.com.bd/payment?recipient=01713574848&amount=${total}&note=${namesText}`;
+  } else {
+    whatsappBtn.style.display = 'none';
+    bkashBtn.style.display = 'none';
+    nagadBtn.style.display = 'none';
+  }
+}
+</script>
 
 </body>
 </html>
