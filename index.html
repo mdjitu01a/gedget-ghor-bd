@@ -8,35 +8,35 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
-*{box-sizing:border-box}
 body{margin:0;font-family:Arial,sans-serif;background:#fff;color:#333}
+
+/* CREATED BY BAR */
+.created-by{
+  background:#000;
+  color:#fff;
+  text-align:center;
+  padding:6px;
+  font-size:13px;
+}
 
 /* HEADER */
 header{
   background:#e91e63;
-  padding:10px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  position:sticky;
-  top:0;
-  z-index:999;
+  padding:15px;
+  text-align:center;
+  position:relative;
 }
-.logo-img{height:55px}
-.search-bar input{
-  padding:8px 12px;
-  border:none;
-  border-radius:20px;
-  width:160px;
-}
-.cart-icon{color:#fff;font-size:20px;position:relative}
-.cart-count{
+.logo-img{height:70px}
+.call-btn{
   position:absolute;
-  top:-6px;right:-8px;
-  background:#fff;color:#e91e63;
-  font-size:12px;
-  padding:2px 6px;
-  border-radius:50%;
+  right:15px;
+  top:15px;
+  background:#fff;
+  color:#e91e63;
+  padding:8px 18px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:bold;
 }
 
 /* BANNER */
@@ -44,94 +44,93 @@ header{
   background:linear-gradient(#e91e63,#ff4081);
   color:#fff;
   text-align:center;
-  padding:25px 15px;
+  padding:30px 15px;
 }
-.banner h1{margin:0;font-size:26px}
 .shop-now{
-  display:inline-block;
-  margin-top:10px;
   background:#fff;
   color:#e91e63;
-  padding:8px 25px;
-  border-radius:25px;
+  padding:10px 30px;
+  border-radius:30px;
   text-decoration:none;
   font-weight:bold;
 }
 
 /* CATEGORIES */
-.categories{padding:15px;background:#f7f7f7}
-.cat-grid{display:flex;gap:12px;overflow-x:auto}
-.cat-item{text-align:center;min-width:90px}
-.cat-item img{width:55px;height:55px;border-radius:12px}
+.categories{padding:20px;background:#f8f8f8}
+.cat-grid{display:flex;gap:15px;overflow-x:auto}
+.cat-item{text-align:center;min-width:100px}
+.cat-item img{width:60px;height:60px;border-radius:10px}
 
 /* PRODUCTS */
-.offers{padding:15px}
+.offers{padding:20px}
 .offer-grid{display:flex;gap:15px;overflow-x:auto}
 .offer-card{
-  width:230px;
-  background:#fff;
+  background:#e0f7fa;
   border-radius:15px;
-  padding:12px;
-  box-shadow:0 4px 12px rgba(0,0,0,.1);
+  width:220px;
+  padding:15px;
+  text-align:center;
+  box-shadow:0 2px 10px rgba(0,0,0,.1)
 }
 .offer-card img{
   width:100%;
-  height:180px;
+  height:200px;
   object-fit:contain;
 }
-.offer-card h3{font-size:16px;margin:8px 0}
-.original-price{text-decoration:line-through;color:#999}
+.original-price{text-decoration:line-through;color:#888}
 .discount-price{font-size:20px;color:#e91e63;font-weight:bold}
-.payment-info{font-size:12px;color:#555}
+.payment-info{font-size:13px;color:#555}
 .order-btn,.whatsapp-btn{
   display:block;
-  text-align:center;
-  padding:9px;
-  border-radius:6px;
+  padding:10px;
+  border-radius:5px;
   text-decoration:none;
-  margin-top:6px;
   color:#fff;
+  margin-top:8px;
 }
 .order-btn{background:#ff4081}
 .whatsapp-btn{background:#25D366}
 
-/* FLOAT WHATSAPP */
+/* FLOAT */
 .whatsapp-float{
   position:fixed;
-  bottom:80px;right:15px;
+  bottom:90px;
+  right:20px;
   background:#25D366;
-  width:55px;height:55px;
+  width:60px;
+  height:60px;
   border-radius:50%;
-  color:#fff;
-  font-size:28px;
   display:flex;
   align-items:center;
   justify-content:center;
+  color:#fff;
+  font-size:30px;
 }
 
 /* BOTTOM NAV */
 .bottom-nav{
   position:fixed;
-  bottom:0;width:100%;
+  bottom:0;
+  width:100%;
   background:#e91e63;
   display:flex;
   justify-content:space-around;
-  padding:8px 0;
+  padding:10px 0;
 }
-.nav-item{color:#fff;text-align:center;font-size:12px;text-decoration:none}
+.nav-item{color:#fff;text-decoration:none;text-align:center}
 
 /* FOOTER */
 footer{
   text-align:center;
   padding:20px;
-  background:#f2f2f2;
+  background:#f0f0f0;
   margin-bottom:60px;
 }
 .domain{
   background:#e91e63;
   color:#fff;
-  padding:6px 20px;
-  border-radius:20px;
+  padding:8px 20px;
+  border-radius:30px;
   display:inline-block;
 }
 </style>
@@ -139,18 +138,21 @@ footer{
 
 <body>
 
+<div class="created-by">
+Created by <b>Abdur Rahman</b>
+</div>
+
 <header>
-  <img src="logo.png.JPG" class="logo-img">
-  <div class="search-bar">
-    <input type="text" placeholder="Search...">
-  </div>
-  <a class="cart-icon"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></a>
+<img src="images/logo.png" class="logo-img">
+<a href="tel:01713574848" class="call-btn">
+<i class="fas fa-phone"></i> Call
+</a>
 </header>
 
 <section class="banner">
-  <h1>Flash Sale</h1>
-  <p>Free Delivery 🚚</p>
-  <a href="https://wa.me/8801713574848" class="shop-now">Shop Now</a>
+<h1>Flash Sale</h1>
+<p>Free Delivery 🚚</p>
+<a href="https://wa.me/8801713574848" class="shop-now">Shop Now</a>
 </section>
 
 <section class="offers">
@@ -158,33 +160,27 @@ footer{
 <div class="offer-grid">
 
 <div class="offer-card">
-<img src="airpods.jpg.JPG">
+<img src="images/airpods.jpg">
 <h3>AirPods Pro 2</h3>
 <p class="original-price">৳2500</p>
 <p class="discount-price">৳457</p>
 <div class="payment-info">Advance 120৳</div>
-<a class="order-btn">Order Now</a>
-<a class="whatsapp-btn"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+<a href="https://forms.gle/EztJsGaZCemT9C1u9" class="order-btn">Order Now</a>
+<a href="https://wa.me/8801713574848" class="whatsapp-btn">
+<i class="fab fa-whatsapp"></i> WhatsApp
+</a>
 </div>
 
 <div class="offer-card">
-<img src="powerbank.jpg.JPG">
+<img src="images/powerbank.jpg">
 <h3>JOYROOM Power Bank</h3>
 <p class="original-price">৳1190</p>
 <p class="discount-price">৳999</p>
 <div class="payment-info">Advance 120৳</div>
-<a class="order-btn">Order Now</a>
-<a class="whatsapp-btn"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-</div>
-
-<div class="offer-card">
-<img src="selfiestick.jpg.JPG">
-<h3>P20S Selfie Stick</h3>
-<p class="original-price">৳550</p>
-<p class="discount-price">৳499</p>
-<div class="payment-info">Advance 120৳</div>
-<a class="order-btn">Order Now</a>
-<a class="whatsapp-btn"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+<a href="https://forms.gle/EztJsGaZCemT9C1u9" class="order-btn">Order Now</a>
+<a href="https://wa.me/8801713574848" class="whatsapp-btn">
+<i class="fab fa-whatsapp"></i> WhatsApp
+</a>
 </div>
 
 </div>
@@ -197,9 +193,7 @@ footer{
 <div class="bottom-nav">
 <a class="nav-item"><i class="fas fa-home"></i><br>Home</a>
 <a class="nav-item"><i class="fas fa-store"></i><br>Shop</a>
-<a class="nav-item"><i class="fas fa-heart"></i><br>Fav</a>
-<a class="nav-item"><i class="fas fa-comment"></i><br>Chat</a>
-<a class="nav-item"><i class="fas fa-shopping-cart"></i><br>Cart</a>
+<a class="nav-item" href="login.html"><i class="fas fa-user"></i><br>Admin</a>
 </div>
 
 <footer>
@@ -207,94 +201,19 @@ footer{
 <div class="domain">gadgetsghorbd.com</div>
 </footer>
 
-</body><!DOCTYPE html>
-<html lang="bn">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin Panel | Gadgets Ghor BD</title>
-
-<style>
-body{font-family:Arial;background:#f5f5f5;margin:0}
-.admin-box{
-  max-width:400px;
-  margin:40px auto;
-  background:#fff;
-  padding:20px;
-  border-radius:10px;
-  box-shadow:0 4px 12px rgba(0,0,0,.2)
-}
-input,textarea{
-  width:100%;
-  padding:8px;
-  margin:8px 0;
-}
-button{
-  width:100%;
-  background:#e91e63;
-  color:#fff;
-  padding:10px;
-  border:none;
-  border-radius:6px;
-  font-size:16px;
-}
-.preview{
-  margin-top:15px;
-  padding:10px;
-  background:#f2f2f2;
-  font-size:14px;
-}
-</style>
-</head>
-
-<body>
-
-<div class="admin-box">
-<h2>Admin Panel</h2>
-
-<input id="img" placeholder="Image file name (ex: airpods.jpg.JPG)">
-<input id="name" placeholder="Product Name">
-<input id="price" placeholder="Price">
-<textarea id="desc" placeholder="Description"></textarea>
-
-<button onclick="generate()">Generate Code</button>
-
-<div class="preview" id="output"></div>
-</div>
-
-<script>
-function generate(){
-  const img=document.getElementById("img").value;
-  const name=document.getElementById("name").value;
-  const price=document.getElementById("price").value;
-  const desc=document.getElementById("desc").value;
-
-  document.getElementById("output").innerText=
-`<div class="offer-card">
-<img src="${img}">
-<h3>${name}</h3>
-<p>${desc}</p>
-<p class="discount-price">৳${price}</p>
-<a class="order-btn">Order Now</a>
-</div>`;
-}
-</script>
-
 </body>
 </html><!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
 <title>Admin Login</title>
 <style>
 body{font-family:Arial;background:#f2f2f2}
-.login-box{
+.box{
   max-width:350px;
-  margin:80px auto;
+  margin:100px auto;
   background:#fff;
   padding:25px;
   border-radius:10px;
-  box-shadow:0 4px 12px rgba(0,0,0,.2)
 }
 input,button{
   width:100%;
@@ -305,13 +224,12 @@ button{
   background:#e91e63;
   color:#fff;
   border:none;
-  border-radius:5px;
 }
 </style>
 </head>
 <body>
 
-<div class="login-box">
+<div class="box">
 <h2>Admin Login</h2>
 <input id="user" placeholder="Username">
 <input id="pass" type="password" placeholder="Password">
@@ -321,10 +239,10 @@ button{
 
 <script>
 function login(){
-  const u=document.getElementById("user").value;
-  const p=document.getElementById("pass").value;
-
-  if(u==="admin" && p==="1234"){
+  if(
+    document.getElementById("user").value==="admin" &&
+    document.getElementById("pass").value==="1234"
+  ){
     window.location="admin.html";
   }else{
     document.getElementById("msg").innerText="Wrong login!";
@@ -333,13 +251,80 @@ function login(){
 </script>
 
 </body>
-</html><div class="payment-info">
-<b>bKash / Nagad Personal</b><br>
-01713574848<br>
-Advance: 120৳<br>
-Payment Reference: Product Name
-</div><a href="https://wa.me/8801713574848?text=আমি%20AirPods%20অর্ডার%20করেছি।%20bKash/Nagad%20payment%20করবো।">
-Pay via WhatsApp
-</a><a href="https://forms.gle/YOUR_FORM_LINK" class="order-btn" target="_blank">
-Order Now
-</a>
+</html><!DOCTYPE html>
+<html>
+<head>
+<title>Admin Panel</title>
+<style>
+body{font-family:Arial;background:#f5f5f5}
+.panel{
+  max-width:400px;
+  margin:40px auto;
+  background:#fff;
+  padding:20px;
+  border-radius:10px;
+}
+input,textarea,button{
+  width:100%;
+  padding:8px;
+  margin:8px 0;
+}
+button{
+  background:#e91e63;
+  color:#fff;
+  border:none;
+}
+.output{
+  background:#f2f2f2;
+  padding:10px;
+  font-size:13px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="panel">
+<h2>Admin Panel</h2>
+
+<input id="img" placeholder="Image path (images/product.jpg)">
+<input id="name" placeholder="Product Name">
+<input id="price" placeholder="Price">
+<textarea id="desc" placeholder="Description"></textarea>
+
+<button onclick="gen()">Generate Product Code</button>
+
+<div class="output" id="out"></div>
+
+<hr>
+<a href="dashboard.html">📊 View Orders</a>
+</div>
+
+<script>
+function gen(){
+out.innerText=
+`<div class="offer-card">
+<img src="${img.value}">
+<h3>${name.value}</h3>
+<p>${desc.value}</p>
+<p class="discount-price">৳${price.value}</p>
+<a class="order-btn">Order Now</a>
+</div>`;
+}
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html>
+<head>
+<title>Orders Dashboard</title>
+<style>
+iframe{width:100%;height:100vh;border:none}
+</style>
+</head>
+<body>
+
+<iframe src="https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID/edit?usp=sharing"></iframe>
+
+</body>
+</html>
