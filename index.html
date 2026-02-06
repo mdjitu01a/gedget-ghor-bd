@@ -1,148 +1,345 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gadgets Ghor BD</title>
-    <style>
-        body { margin: 0; font-family: Arial, sans-serif; background-color: #fff; color: #333; }
-        header { background-color: #e91e63; color: white; padding: 15px; text-align: center; position: relative; }
-        .logo-img { height: 80px; }
-        .call-btn { position: absolute; top: 15px; right: 15px; background-color: white; color: #e91e63; padding: 10px 20px; border-radius: 30px; text-decoration: none; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
-        .banner { background: linear-gradient(to bottom, #e91e63, #ff4081); color: white; text-align: center; padding: 30px 15px; }
-        .banner h1 { margin: 0; font-size: 28px; }
-        .shop-now { background-color: white; color: #e91e63; padding: 10px 30px; border-radius: 30px; text-decoration: none; font-weight: bold; }
-        .categories { padding: 20px; background-color: #f8f8f8; }
-        .cat-grid { display: flex; overflow-x: auto; gap: 15px; padding-bottom: 10px; }
-        .cat-item { text-align: center; min-width: 100px; }
-        .cat-item img { width: 60px; height: 60px; background-color: #ddd; border-radius: 10px; }
-        .offers { padding: 20px; }
-        .offer-grid { display: flex; overflow-x: auto; gap: 15px; }
-        .offer-card { background-color: #e0f7fa; border-radius: 15px; width: 220px; text-align: center; padding: 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .offer-card img { width: 100%; height: 200px; object-fit: contain; border-radius: 10px; }
-        .original-price { text-decoration: line-through; color: #888; }
-        .discount-price { font-size: 20px; font-weight: bold; color: #e91e63; }
-        .payment-info { font-size: 13px; margin: 10px 0; color: #555; }
-        .order-btn { background-color: #ff4081; color: white; padding: 10px; border-radius: 5px; text-decoration: none; display: block; margin: 10px 0; }
-        .whatsapp-btn { background-color: #25D366; color: white; padding: 10px; border-radius: 5px; text-decoration: none; display: block; }
-        .whatsapp-float { position: fixed; bottom: 90px; right: 20px; background-color: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; text-align: center; line-height: 60px; font-size: 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.3); z-index: 100; }
-        .bottom-nav { position: fixed; bottom: 0; width: 100%; background-color: #e91e63; display: flex; justify-content: space-around; padding: 10px 0; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); }
-        .nav-item { text-align: center; color: white; text-decoration: none; }
-        footer { text-align: center; padding: 20px; background-color: #f0f0f0; margin-top: 20px; }
-        .domain { background-color: #e91e63; color: white; padding: 10px; border-radius: 30px; display: inline-block; margin: 10px 0; }
-    </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gadgets Ghor BD</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#fff;color:#333}
+
+/* HEADER */
+header{
+  background:#e91e63;
+  padding:10px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:sticky;
+  top:0;
+  z-index:999;
+}
+.logo-img{height:55px}
+.search-bar input{
+  padding:8px 12px;
+  border:none;
+  border-radius:20px;
+  width:160px;
+}
+.cart-icon{color:#fff;font-size:20px;position:relative}
+.cart-count{
+  position:absolute;
+  top:-6px;right:-8px;
+  background:#fff;color:#e91e63;
+  font-size:12px;
+  padding:2px 6px;
+  border-radius:50%;
+}
+
+/* BANNER */
+.banner{
+  background:linear-gradient(#e91e63,#ff4081);
+  color:#fff;
+  text-align:center;
+  padding:25px 15px;
+}
+.banner h1{margin:0;font-size:26px}
+.shop-now{
+  display:inline-block;
+  margin-top:10px;
+  background:#fff;
+  color:#e91e63;
+  padding:8px 25px;
+  border-radius:25px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+/* CATEGORIES */
+.categories{padding:15px;background:#f7f7f7}
+.cat-grid{display:flex;gap:12px;overflow-x:auto}
+.cat-item{text-align:center;min-width:90px}
+.cat-item img{width:55px;height:55px;border-radius:12px}
+
+/* PRODUCTS */
+.offers{padding:15px}
+.offer-grid{display:flex;gap:15px;overflow-x:auto}
+.offer-card{
+  width:230px;
+  background:#fff;
+  border-radius:15px;
+  padding:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,.1);
+}
+.offer-card img{
+  width:100%;
+  height:180px;
+  object-fit:contain;
+}
+.offer-card h3{font-size:16px;margin:8px 0}
+.original-price{text-decoration:line-through;color:#999}
+.discount-price{font-size:20px;color:#e91e63;font-weight:bold}
+.payment-info{font-size:12px;color:#555}
+.order-btn,.whatsapp-btn{
+  display:block;
+  text-align:center;
+  padding:9px;
+  border-radius:6px;
+  text-decoration:none;
+  margin-top:6px;
+  color:#fff;
+}
+.order-btn{background:#ff4081}
+.whatsapp-btn{background:#25D366}
+
+/* FLOAT WHATSAPP */
+.whatsapp-float{
+  position:fixed;
+  bottom:80px;right:15px;
+  background:#25D366;
+  width:55px;height:55px;
+  border-radius:50%;
+  color:#fff;
+  font-size:28px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* BOTTOM NAV */
+.bottom-nav{
+  position:fixed;
+  bottom:0;width:100%;
+  background:#e91e63;
+  display:flex;
+  justify-content:space-around;
+  padding:8px 0;
+}
+.nav-item{color:#fff;text-align:center;font-size:12px;text-decoration:none}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:20px;
+  background:#f2f2f2;
+  margin-bottom:60px;
+}
+.domain{
+  background:#e91e63;
+  color:#fff;
+  padding:6px 20px;
+  border-radius:20px;
+  display:inline-block;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <img src="logo.png.JPG" class="logo-img">
+  <div class="search-bar">
+    <input type="text" placeholder="Search...">
+  </div>
+  <a class="cart-icon"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></a>
+</header>
+
+<section class="banner">
+  <h1>Flash Sale</h1>
+  <p>Free Delivery 🚚</p>
+  <a href="https://wa.me/8801713574848" class="shop-now">Shop Now</a>
+</section>
+
+<section class="offers">
+<h2>Hot Offers</h2>
+<div class="offer-grid">
+
+<div class="offer-card">
+<img src="airpods.jpg.JPG">
+<h3>AirPods Pro 2</h3>
+<p class="original-price">৳2500</p>
+<p class="discount-price">৳457</p>
+<div class="payment-info">Advance 120৳</div>
+<a class="order-btn">Order Now</a>
+<a class="whatsapp-btn"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+</div>
+
+<div class="offer-card">
+<img src="powerbank.jpg.JPG">
+<h3>JOYROOM Power Bank</h3>
+<p class="original-price">৳1190</p>
+<p class="discount-price">৳999</p>
+<div class="payment-info">Advance 120৳</div>
+<a class="order-btn">Order Now</a>
+<a class="whatsapp-btn"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+</div>
+
+<div class="offer-card">
+<img src="selfiestick.jpg.JPG">
+<h3>P20S Selfie Stick</h3>
+<p class="original-price">৳550</p>
+<p class="discount-price">৳499</p>
+<div class="payment-info">Advance 120৳</div>
+<a class="order-btn">Order Now</a>
+<a class="whatsapp-btn"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+</div>
+
+</div>
+</section>
+
+<a href="https://wa.me/8801713574848" class="whatsapp-float">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+<div class="bottom-nav">
+<a class="nav-item"><i class="fas fa-home"></i><br>Home</a>
+<a class="nav-item"><i class="fas fa-store"></i><br>Shop</a>
+<a class="nav-item"><i class="fas fa-heart"></i><br>Fav</a>
+<a class="nav-item"><i class="fas fa-comment"></i><br>Chat</a>
+<a class="nav-item"><i class="fas fa-shopping-cart"></i><br>Cart</a>
+</div>
+
+<footer>
+<p>WhatsApp: 01713574848</p>
+<div class="domain">gadgetsghorbd.com</div>
+</footer>
+
+</body><!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Panel | Gadgets Ghor BD</title>
+
+<style>
+body{font-family:Arial;background:#f5f5f5;margin:0}
+.admin-box{
+  max-width:400px;
+  margin:40px auto;
+  background:#fff;
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 4px 12px rgba(0,0,0,.2)
+}
+input,textarea{
+  width:100%;
+  padding:8px;
+  margin:8px 0;
+}
+button{
+  width:100%;
+  background:#e91e63;
+  color:#fff;
+  padding:10px;
+  border:none;
+  border-radius:6px;
+  font-size:16px;
+}
+.preview{
+  margin-top:15px;
+  padding:10px;
+  background:#f2f2f2;
+  font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="admin-box">
+<h2>Admin Panel</h2>
+
+<input id="img" placeholder="Image file name (ex: airpods.jpg.JPG)">
+<input id="name" placeholder="Product Name">
+<input id="price" placeholder="Price">
+<textarea id="desc" placeholder="Description"></textarea>
+
+<button onclick="generate()">Generate Code</button>
+
+<div class="preview" id="output"></div>
+</div>
+
+<script>
+function generate(){
+  const img=document.getElementById("img").value;
+  const name=document.getElementById("name").value;
+  const price=document.getElementById("price").value;
+  const desc=document.getElementById("desc").value;
+
+  document.getElementById("output").innerText=
+`<div class="offer-card">
+<img src="${img}">
+<h3>${name}</h3>
+<p>${desc}</p>
+<p class="discount-price">৳${price}</p>
+<a class="order-btn">Order Now</a>
+</div>`;
+}
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Admin Login</title>
+<style>
+body{font-family:Arial;background:#f2f2f2}
+.login-box{
+  max-width:350px;
+  margin:80px auto;
+  background:#fff;
+  padding:25px;
+  border-radius:10px;
+  box-shadow:0 4px 12px rgba(0,0,0,.2)
+}
+input,button{
+  width:100%;
+  padding:10px;
+  margin:10px 0;
+}
+button{
+  background:#e91e63;
+  color:#fff;
+  border:none;
+  border-radius:5px;
+}
+</style>
 </head>
 <body>
 
-    <header>
-    <div class="header-content">
-        <img src="logo.png.JPG" alt="Gadgets Ghor BD Logo" class="logo-img"> <!-- রুটে থাকলে এটা কাজ করবে -->
-        <div class="search-bar">
-            <input type="text" placeholder="প্রোডাক্ট সার্চ করুন...">
-        </div>
-        <a href="#" class="cart-icon">
-            <i class="fas fa-shopping-cart"></i>
-            <span class="cart-count">0</span>
-        </a>
-    </div>
-</header>
+<div class="login-box">
+<h2>Admin Login</h2>
+<input id="user" placeholder="Username">
+<input id="pass" type="password" placeholder="Password">
+<button onclick="login()">Login</button>
+<p id="msg"></p>
+</div>
 
-    <section class="banner">
-        <h1>Flash Sell</h1>
-        <p>Limited Time Offer</p>
-        <p><i class="fas fa-truck"></i> Free Delivery</p>
-        <a href="https://wa.me/8801713574848" class="shop-now">Shop Now</a>
-    </section>
+<script>
+function login(){
+  const u=document.getElementById("user").value;
+  const p=document.getElementById("pass").value;
 
-    <section class="categories">
-        <h2>Categories</h2>
-        <div class="cat-grid">
-            <!-- ক্যাটাগরি আইকন প্লেসহোল্ডার -->
-            <div class="cat-item"><img src="https://via.placeholder.com/60" alt=""><p>New Arrival</p></div>
-            <div class="cat-item"><img src="https://via.placeholder.com/60" alt=""><p>Earbuds</p></div>
-            <div class="cat-item"><img src="https://via.placeholder.com/60" alt=""><p>Power Bank</p></div>
-            <div class="cat-item"><img src="https://via.placeholder.com/60" alt=""><p>Selfie Stick</p></div>
-        </div>
-    </section>
-
-    <section class="offers">
-        <h2>Hot Offers</h2>
-        <div class="offer-grid">
-            <!-- প্রোডাক্ট ১: AirPods Pro -->
-            <div class="offer-card">
-                <img src="https://raw.githubusercontent.com/mdjitu01a/gedget-ghor-bd/4889530cd59e69cc8142a8b887776562b19e1e02/airpods.jpg%20.JPG" alt="AirPods">
-                <h3>AirPods Pro 2nd Generation</h3>
-                <p>Made in Dubai Wireless Charging Bluetooth Earbuds</p>
-                <p class="original-price">৳2,500</p>
-                <p class="discount-price">৳457</p>
-                <div class="payment-info">
-                    অ্যাডভান্স: ১২০ টাকা<br>
-                    bKash/Nagad: 01713574848
-                </div>
-                <a href="https://forms.gle/EztJsGaZCemT9C1u9" target="_blank" class="order-btn">Order Now (Form)</a>
-                <a href="https://wa.me/8801713574848?text=আমি%20AirPods%20Pro%202nd%20Generation%20অর্ডার%20করতে%20চাই%20(%E0%A7%B3%E0%A7%AA%E0%A7%AB%E0%A7%AD)" class="whatsapp-btn">
-                    <i class="fab fa-whatsapp"></i> WhatsApp-এ অর্ডার
-                </a>
-            </div>
-
-            <!-- প্রোডাক্ট ২: JOYROOM Power Bank -->
-            <div class="offer-card">
-                <img src="powerbank.jpg .JPG" alt="Power Bank" style="width:250px;height:auto;">
-                <h3>JOYROOM Power Bank</h3>
-                <p>10000mAh 2.4A LED Power Bank</p>
-                <p class="original-price">৳1,190</p>
-                <p class="discount-price">৳999</p>
-                <div class="payment-info">
-                    অ্যাডভান্স: ১২০ টাকা<br>
-                    bKash/Nagad: 01713574848
-                </div>
-                <a href="https://forms.gle/EztJsGaZCemT9C1u9" target="_blank" class="order-btn">Order Now (Form)</a>
-                <a href="https://wa.me/8801713574848?text=আমি%20JOYROOM%20Power%20Bank%20অর্ডার%20করতে%20চাই%20(%E0%A7%B3%E0%A7%AF%E0%A7%AF%E0%A7%AF)" class="whatsapp-btn">
-                    <i class="fab fa-whatsapp"></i> WhatsApp-এ অর্ডার
-                </a>
-            </div>
-
-            <!-- প্রোডাক্ট ৩: Selfie Stick -->
-            <div class="offer-card">
-                <img src="selfiestick.jpg.JPG" alt="Selfie Stick" style="width:250px;height:auto;">
-                <h3>P20S Bluetooth Selfie Stick</h3>
-                <p>With Light & Remote Control</p>
-                <p class="original-price">৳550</p>
-                <p class="discount-price">৳499</p>
-                <div class="payment-info">
-                    অ্যাডভান্স: ১২০ টাকা<br>
-                    bKash/Nagad: 01713574848
-                </div>
-                <a href="https://forms.gle/EztJsGaZCemT9C1u9" target="_blank" class="order-btn">Order Now (Form)</a>
-                <a href="https://wa.me/8801713574848?text=আমি%20P20S%20Selfie%20Stick%20অর্ডার%20করতে%20চাই%20(%E0%A7%B3%E0%A7%AA%E0%A7%AF%E0%A7%AF)" class="whatsapp-btn">
-                    <i class="fab fa-whatsapp"></i> WhatsApp-এ অর্ডার
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <a href="https://wa.me/8801713574848" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
-
-    <div class="bottom-nav">
-        <a href="#" class="nav-item"><i class="fas fa-home"></i><br>Home</a>
-        <a href="#" class="nav-item"><i class="fas fa-store"></i><br>Shop</a>
-        <a href="#" class="nav-item"><i class="fas fa-heart"></i><br>Favorite</a>
-        <a href="#" class="nav-item"><i class="fas fa-comment"></i><br>Message</a>
-        <a href="#" class="nav-item"><i class="fas fa-shopping-cart"></i><br>Items</a>
-    </div>
-
-    <footer>
-        <p>Created by Zitu</p>
-        <p>WhatsApp: 01713574848 | Facebook: Gedget</p>
-        <p>অর্ডার করুন ফর্মে বা হোয়াটসঅ্যাপে</p>
-        <div class="domain">gadgetsghorbd.com</div>
-    </footer>
+  if(u==="admin" && p==="1234"){
+    window.location="admin.html";
+  }else{
+    document.getElementById("msg").innerText="Wrong login!";
+  }
+}
+</script>
 
 </body>
-</html><header>
-    <img src="logo.png.JPG" alt="Gadgets Ghor BD Logo" class="logo-img">
-    <!-- অথবা যদি অনলাইন raw লিঙ্ক চান (সবসময় কাজ করবে): -->
-    <!-- <img src="https://raw.githubusercontent.com/mdjitu01a/gedget-ghor-bd/main/logo.png.JPG" alt="Gadgets Ghor BD Logo" class="logo-img"> -->
-    <a href="tel:01713574848" class="call-btn"><i class="fas fa-phone"></i> Call</a>
-</header>
+</html><div class="payment-info">
+<b>bKash / Nagad Personal</b><br>
+01713574848<br>
+Advance: 120৳<br>
+Payment Reference: Product Name
+</div><a href="https://wa.me/8801713574848?text=আমি%20AirPods%20অর্ডার%20করেছি।%20bKash/Nagad%20payment%20করবো।">
+Pay via WhatsApp
+</a><a href="https://forms.gle/YOUR_FORM_LINK" class="order-btn" target="_blank">
+Order Now
+</a>
