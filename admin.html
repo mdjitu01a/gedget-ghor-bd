@@ -1,112 +1,124 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <title>Admin Panel | Gadgets Ghor BD</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body{
-      margin:0;
-      font-family: Arial, sans-serif;
-      background:#111827;
-      color:white;
-    }
-    header{
-      background:#020617;
-      padding:20px;
-      text-align:center;
-      border-bottom:2px solid #22c55e;
-    }
-    .container{
-      max-width:900px;
-      margin:20px auto;
-      padding:15px;
-    }
-    .card{
-      background:#1f2937;
-      padding:15px;
-      border-radius:12px;
-      margin-bottom:20px;
-    }
-    input{
-      width:100%;
-      padding:10px;
-      margin:8px 0;
-      border-radius:8px;
-      border:none;
-    }
-    button{
-      padding:10px 14px;
-      border:none;
-      border-radius:8px;
-      background:#22c55e;
-      font-weight:bold;
-      cursor:pointer;
-    }
-    button.remove{
-      background:#ef4444;
-      color:white;
-    }
-    ul{
-      list-style:none;
-      padding:0;
-    }
-    li{
-      background:#020617;
-      padding:10px;
-      margin-bottom:8px;
-      border-radius:8px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>অ্যাপল সাইড - অ্যাডমিন প্যানেল</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root { --primary: #1e88e5; --danger: #e53935; }
+        body { font-family: Arial, sans-serif; background: #f8f9fa; padding: 20px; }
+        .modal { position: fixed; inset: 0; background: rgba(0,0,0,0.7); display: flex; align-items: center; justify-content: center; z-index: 9999; }
+        .modal-content { background: white; padding: 30px; border-radius: 12px; width: 90%; max-width: 400px; text-align: center; }
+        .btn { padding: 12px 30px; border-radius: 50px; cursor: pointer; border: none; font-weight: bold; }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-danger { background: var(--danger); color: white; }
+        form { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin: 20px 0; }
+        input { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; border-radius: 6px; }
+        .product-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+        .product-item { background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+        .actions button { margin: 5px; padding: 8px 16px; cursor: pointer; }
+    </style>
 </head>
 <body>
 
-<header>
-  <h1>Admin Dashboard</h1>
-  <p>Add / Remove Products (UI)</p>
-</header>
+<div class="modal" id="adminLoginModal">
+    <div class="modal-content">
+        <h2>অ্যাডমিন লগইন</h2>
+        <input type="password" id="adminPass" placeholder="পাসওয়ার্ড দিন" style="margin:20px 0;">
+        <button onclick="checkAdmin()" class="btn btn-primary" style="width:100%;">লগইন</button>
+    </div>
+</div>
 
-<div class="container">
+<div id="adminContent" style="display:none;">
+    <h1 style="text-align:center;">অ্যাডমিন প্যানেল</h1>
+    <button onclick="location.reload()" class="btn btn-danger" style="float:right;">লগআউট</button>
 
-  <!-- Add Product -->
-  <div class="card">
-    <h3>Add Product</h3>
-    <input type="text" id="pname" placeholder="Product Name">
-    <input type="number" id="pprice" placeholder="Price (BDT)">
-    <button onclick="addProduct()">Add Product</button>
-  </div>
+    <h2>নতুন প্রোডাক্ট যোগ করুন</h2>
+    <form id="productForm">
+        <input type="text" id="name" placeholder="প্রোডাক্টের নাম" required>
+        <input type="number" id="price" placeholder="দাম (৳)" required>
+        <input type="number" id="oldPrice" placeholder="আগের দাম (৳)">
+        <input type="text" id="img" placeholder="ইমেজ URL" required>
+        <input type="text" id="category" placeholder="ক্যাটাগরি (airpods/powerbank/selfie)" required>
+        <input type="file" id="imageFile" accept="image/*">
+        <div id="preview"></div>
+        <button type="submit" class="btn btn-primary" style="width:100%; margin-top:15px;">প্রোডাক্ট যোগ করুন</button>
+    </form>
 
-  <!-- Product List -->
-  <div class="card">
-    <h3>Product List</h3>
-    <ul id="productList"></ul>
-  </div>
-
+    <h2>সকল প্রোডাক্ট</h2>
+    <div class="product-list" id="adminProductList"></div>
 </div>
 
 <script>
-  function addProduct(){
-    let name = document.getElementById("pname").value;
-    let price = document.getElementById("pprice").value;
+    let products = JSON.parse(localStorage.getItem('products')) || [];
 
-    if(name === "" || price === ""){
-      alert("Fill all fields");
-      return;
+    const ADMIN_PASSWORD = "123456"; // চেঞ্জ করতে পারো
+
+    function checkAdmin() {
+        if (document.getElementById('adminPass').value === ADMIN_PASSWORD) {
+            document.getElementById('adminLoginModal').style.display = 'none';
+            document.getElementById('adminContent').style.display = 'block';
+            renderAdminProducts();
+        } else {
+            alert("ভুল পাসওয়ার্ড!");
+        }
     }
 
-    let li = document.createElement("li");
-    li.innerHTML = `
-      <span>${name} - ৳ ${price}</span>
-      <button class="remove" onclick="this.parentElement.remove()">Remove</button>
-    `;
-    document.getElementById("productList").appendChild(li);
+    function renderAdminProducts() {
+        const list = document.getElementById('adminProductList');
+        list.innerHTML = '';
+        products.forEach(p => {
+            const item = document.createElement('div');
+            item.className = 'product-item';
+            item.innerHTML = `
+                <h3>${p.name}</h3>
+                <p>দাম: ৳${p.price} ${p.old ? `(আগের: ৳${p.old})` : ''}</p>
+                <p>ক্যাটাগরি: ${p.category}</p>
+                <img src="${p.img}" style="max-width:100%; border-radius:8px;">
+                <div class="actions">
+                    <button onclick="deleteProduct(${p.id})" class="btn btn-danger">ডিলিট</button>
+                </div>
+            `;
+            list.appendChild(item);
+        });
+    }
 
-    document.getElementById("pname").value = "";
-    document.getElementById("pprice").value = "";
-  }
+    document.getElementById('productForm').addEventListener('submit', e => {
+        e.preventDefault();
+        const newProduct = {
+            id: Date.now(),
+            name: document.getElementById('name').value.trim(),
+            price: parseInt(document.getElementById('price').value),
+            old: parseInt(document.getElementById('oldPrice').value) || null,
+            img: document.getElementById('img').value.trim(),
+            category: document.getElementById('category').value.trim().toLowerCase()
+        };
+        products.push(newProduct);
+        localStorage.setItem('products', JSON.stringify(products));
+        renderAdminProducts();
+        e.target.reset();
+        document.getElementById('preview').innerHTML = '';
+    });
+
+    document.getElementById('imageFile').addEventListener('change', e => {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = ev => {
+                document.getElementById('preview').innerHTML = `<img src="${ev.target.result}" style="max-width:200px;">`;
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+
+    function deleteProduct(id) {
+        if (confirm('ডিলিট করতে চান?')) {
+            products = products.filter(p => p.id !== id);
+            localStorage.setItem('products', JSON.stringify(products));
+            renderAdminProducts();
+        }
+    }
 </script>
 
 </body>
