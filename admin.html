@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Panel | Gadgets Ghor BD</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body{
+      margin:0;
+      font-family: Arial, sans-serif;
+      background:#111827;
+      color:white;
+    }
+    header{
+      background:#020617;
+      padding:20px;
+      text-align:center;
+      border-bottom:2px solid #22c55e;
+    }
+    .container{
+      max-width:900px;
+      margin:20px auto;
+      padding:15px;
+    }
+    .card{
+      background:#1f2937;
+      padding:15px;
+      border-radius:12px;
+      margin-bottom:20px;
+    }
+    input{
+      width:100%;
+      padding:10px;
+      margin:8px 0;
+      border-radius:8px;
+      border:none;
+    }
+    button{
+      padding:10px 14px;
+      border:none;
+      border-radius:8px;
+      background:#22c55e;
+      font-weight:bold;
+      cursor:pointer;
+    }
+    button.remove{
+      background:#ef4444;
+      color:white;
+    }
+    ul{
+      list-style:none;
+      padding:0;
+    }
+    li{
+      background:#020617;
+      padding:10px;
+      margin-bottom:8px;
+      border-radius:8px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Admin Dashboard</h1>
+  <p>Add / Remove Products (UI)</p>
+</header>
+
+<div class="container">
+
+  <!-- Add Product -->
+  <div class="card">
+    <h3>Add Product</h3>
+    <input type="text" id="pname" placeholder="Product Name">
+    <input type="number" id="pprice" placeholder="Price (BDT)">
+    <button onclick="addProduct()">Add Product</button>
+  </div>
+
+  <!-- Product List -->
+  <div class="card">
+    <h3>Product List</h3>
+    <ul id="productList"></ul>
+  </div>
+
+</div>
+
+<script>
+  function addProduct(){
+    let name = document.getElementById("pname").value;
+    let price = document.getElementById("pprice").value;
+
+    if(name === "" || price === ""){
+      alert("Fill all fields");
+      return;
+    }
+
+    let li = document.createElement("li");
+    li.innerHTML = `
+      <span>${name} - ৳ ${price}</span>
+      <button class="remove" onclick="this.parentElement.remove()">Remove</button>
+    `;
+    document.getElementById("productList").appendChild(li);
+
+    document.getElementById("pname").value = "";
+    document.getElementById("pprice").value = "";
+  }
+</script>
+
+</body>
+</html>
