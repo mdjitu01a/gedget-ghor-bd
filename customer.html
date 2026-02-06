@@ -1,66 +1,194 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <title>Customer | Gadgets Ghor BD</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body{
-      margin:0;
-      font-family: Arial, sans-serif;
-      background:#f9fafb;
-    }
-    header{
-      background:#2563eb;
-      color:white;
-      padding:20px;
-      text-align:center;
-    }
-    .container{
-      max-width:1000px;
-      margin:30px auto;
-      padding:15px;
-    }
-    .product{
-      background:white;
-      border-radius:12px;
-      padding:15px;
-      margin-bottom:15px;
-      box-shadow:0 4px 10px rgba(0,0,0,0.08);
-    }
-    .product h3{margin:0 0 8px;}
-    .btn{
-      display:inline-block;
-      margin-top:10px;
-      padding:10px 14px;
-      background:#22c55e;
-      color:#052e16;
-      text-decoration:none;
-      border-radius:8px;
-      font-weight:bold;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>অ্যাপল সাইড - সেরা দামে অরিজিনাল প্রোডাক্ট</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1e88e5;
+            --danger: #e53935;
+            --light: #f8f9fa;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family: Arial, sans-serif; background: var(--light); }
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 12px 16px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+        .header-inner {
+            max-width: 1300px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .logo img { height: 50px; border-radius: 8px; }
+        .search-box { flex: 1; max-width: 600px; margin: 8px 0; }
+        .search-box input { width: 100%; padding: 12px 20px; border: none; border-radius: 50px; font-size: 16px; }
+        .header-right { display: flex; align-items: center; gap: 15px; }
+        .login-btn { padding: 8px 16px; background: white; color: var(--primary); border: none; border-radius: 6px; font-weight: bold; cursor: pointer; }
+        .cart-btn { position: relative; font-size: 1.6rem; color: white; cursor: pointer; }
+        .cart-count { position: absolute; top: -8px; right: -10px; background: var(--danger); color: white; font-size: 12px; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .hero { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://raw.githubusercontent.com/mdjitu01a/appleside/ffadad432ef60b2b234447e0f98a9a8b4665e5f9/IMG_1260.jpeg'); background-size: cover; color: white; text-align: center; padding: 100px 20px; margin-top: 70px; }
+        .container { max-width: 1300px; margin: auto; padding: 0 16px; }
+        .categories { display: flex; overflow-x: auto; gap: 12px; padding: 15px 0; background: white; margin: 15px 0; border-radius: 10px; }
+        .cat-item { min-width: 100px; text-align: center; padding: 10px; cursor: pointer; }
+        .cat-item.active { background: var(--primary); color: white; border-radius: 10px; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+        .product-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 3px 10px rgba(0,0,0,0.1); cursor: pointer; }
+        .product-img { width: 100%; height: 200px; object-fit: contain; padding: 15px; background: #f8fbff; }
+        .product-info { padding: 12px; }
+        .product-title { font-size: 0.95rem; font-weight: 600; height: 44px; overflow: hidden; }
+        .price { font-size: 1.3rem; font-weight: bold; color: var(--danger); }
+        .old-price { text-decoration: line-through; color: #777; font-size: 0.9rem; margin-left: 8px; }
+        .buy-btn { background: #25D366; color: white; border: none; padding: 8px 16px; border-radius: 8px; margin-top: 10px; width: 100%; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .buy-btn:hover { background: #20b858; }
+        .modal { position: fixed; inset: 0; background: rgba(0,0,0,0.7); display: none; align-items: center; justify-content: center; z-index: 2000; }
+        .modal-content { background: white; width: 90%; max-width: 420px; border-radius: 12px; padding: 25px; }
+        .close-btn { float: right; font-size: 2rem; cursor: pointer; }
+        .whatsapp-float { position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; background: #25D366; color: white; border-radius: 50%; font-size: 2rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 999; }
+    </style>
 </head>
 <body>
 
 <header>
-  <h1>Gadgets Ghor BD</h1>
-  <p>Customer Page</p>
+    <div class="header-inner">
+        <div class="logo">
+            <img src="https://raw.githubusercontent.com/mdjitu01a/appleside/ffadad432ef60b2b234447e0f98a9a8b4665e5f9/IMG_1260.jpeg" alt="Apple Side">
+        </div>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="প্রোডাক্ট সার্চ করুন...">
+        </div>
+        <div class="header-right">
+            <button id="customerLoginBtn" class="login-btn">লগইন / সাইন আপ</button>
+            <div class="cart-btn" id="cartToggle">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+        </div>
+    </div>
 </header>
 
-<div class="container">
-  <div class="product">
-    <h3>Smart Watch</h3>
-    <p>দাম: ৳ 2500</p>
-    <a class="btn" href="#">Order Now</a>
-  </div>
-
-  <div class="product">
-    <h3>Earbuds</h3>
-    <p>দাম: ৳ 1800</p>
-    <a class="btn" href="#">Order Now</a>
-  </div>
+<div class="hero">
+    <h1>স্বাগতম অ্যাপল সাইডে!</h1>
+    <p>সেরা দামে অরিজিনাল প্রোডাক্ট • ফ্রি ডেলিভারি</p>
+    <button class="btn btn-primary">হট ডিল দেখুন</button>
 </div>
+
+<div class="container">
+    <div class="categories" id="categories">
+        <div class="cat-item active" data-category="all">সব</div>
+        <div class="cat-item" data-category="airpods">AirPods</div>
+        <div class="cat-item" data-category="powerbank">পাওয়ার ব্যাংক</div>
+        <div class="cat-item" data-category="selfie">সেলফি স্টিক</div>
+    </div>
+
+    <h2 class="section-title">হট ডিলস ও বেস্ট সেলার</h2>
+    <div class="product-grid" id="productGrid"></div>
+</div>
+
+<!-- কাস্টমার লগইন মোডাল (ঐচ্ছিক – চাইলে রাখতে পারো) -->
+<div class="modal" id="customerModal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="document.getElementById('customerModal').style.display='none'">×</span>
+        <h2 style="text-align:center;">ফোন দিয়ে লগইন</h2>
+        <div id="phoneStep">
+            <input type="tel" id="phoneNumber" placeholder="+8801XXXXXXXXX" style="width:100%; padding:14px; margin:15px 0;">
+            <button id="sendOTPBtn" class="btn btn-primary" style="width:100%;">OTP পাঠান</button>
+        </div>
+        <div id="otpStep" style="display:none;">
+            <input type="text" id="otpCode" placeholder="৬ ডিজিট OTP" maxlength="6" style="width:100%; padding:14px; font-size:22px; text-align:center; letter-spacing:10px; margin:15px 0;">
+            <button id="verifyOTPBtn" class="btn btn-success" style="width:100%;">যাচাই করুন</button>
+            <p style="text-align:center; margin-top:10px;"><small id="resendLink" style="color:var(--primary); cursor:pointer;">আবার পাঠান</small></p>
+        </div>
+    </div>
+</div>
+
+<a href="https://wa.me/8801713574848" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
+
+<script>
+    let products = JSON.parse(localStorage.getItem('products')) || [];
+
+    function renderProducts(filtered = products) {
+        const grid = document.getElementById('productGrid');
+        grid.innerHTML = '';
+        if (filtered.length === 0) {
+            grid.innerHTML = '<p style="text-align:center; grid-column:1/-1; padding:40px;">কোনো প্রোডাক্ট পাওয়া যায়নি</p>';
+            return;
+        }
+        filtered.forEach(p => {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            card.innerHTML = `
+                <img src="${p.img}" class="product-img">
+                <div class="product-info">
+                    <div class="product-title">${p.name}</div>
+                    <div class="price">৳${p.price} ${p.old ? `<span class="old-price">৳${p.old}</span>` : ''}</div>
+                    <button class="buy-btn" onclick="event.stopPropagation(); buyProduct('${p.name}', ${p.price})">
+                        <i class="fab fa-whatsapp"></i> কিনুন
+                    </button>
+                </div>
+            `;
+            card.onclick = () => alert(`আপনি ${p.name} দেখতে চান?`);
+            grid.appendChild(card);
+        });
+    }
+
+    function buyProduct(name, price) {
+        const message = `আমি ${name} কিনতে চাই। দাম: ৳${price}`;
+        const whatsappUrl = `https://wa.me/8801713574848?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank');
+    }
+
+    document.getElementById('searchInput').addEventListener('input', e => {
+        const term = e.target.value.toLowerCase().trim();
+        const filtered = products.filter(p => p.name.toLowerCase().includes(term));
+        renderProducts(filtered);
+    });
+
+    document.querySelectorAll('.cat-item').forEach(item => {
+        item.addEventListener('click', () => {
+            document.querySelectorAll('.cat-item').forEach(i => i.classList.remove('active'));
+            item.classList.add('active');
+            const cat = item.dataset.category;
+            const filtered = cat === 'all' ? products : products.filter(p => p.category === cat);
+            renderProducts(filtered);
+        });
+    });
+
+    // কাস্টমার লগইন (ঐচ্ছিক)
+    document.getElementById('customerLoginBtn').onclick = () => {
+        document.getElementById('customerModal').style.display = 'flex';
+    };
+
+    document.getElementById('sendOTPBtn').onclick = () => {
+        alert('ডেমো OTP পাঠানো হয়েছে → 123456');
+        document.getElementById('phoneStep').style.display = 'none';
+        document.getElementById('otpStep').style.display = 'block';
+    };
+
+    document.getElementById('verifyOTPBtn').onclick = () => {
+        if (document.getElementById('otpCode').value === '123456') {
+            alert('লগইন সফল!');
+            document.getElementById('customerLoginBtn').textContent = 'হ্যালো!';
+            document.getElementById('customerModal').style.display = 'none';
+        } else {
+            alert('ভুল OTP');
+        }
+    };
+
+    document.getElementById('resendLink').onclick = () => alert('নতুন OTP পাঠানো হয়েছে');
+
+    renderProducts();
+</script>
 
 </body>
 </html>
